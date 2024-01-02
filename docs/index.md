@@ -44,7 +44,7 @@ Create swimlanes:
 
 #### Create Labels
 
-Clone the repo locally and use `gh cli` to create labels using the `create_priority_labels.sh` script to do this automatically. If `gh cli` is not already installed then, follow [these](https://cli.github.com/manual/installation) instructions.
+Clone the repo locally and use `gh cli` to create labels using the `create_priority_labels.sh` script to do this automatically. If `gh cli` is not already installed then, follow [these](https://github.com/cli/cli#installation) instructions.
 
 ```bash
 % git clone https://github.com/CCBR/vlog.git 
