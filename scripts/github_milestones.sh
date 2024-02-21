@@ -7,7 +7,7 @@ year="$2"
 run=$3
 
 
-if [[ -z $workflow ]]; then echo "Choose a workflow: HELP, INSTALL, WEEKLY, MONTHLY, CONVERSION, EDIT"; exit; fi
+if [[ -z $workflow ]]; then echo "Choose a workflow: HELP, INSTALL, WEEKLY, MONTHLY, CONVERSION, EDIT, DELETE"; exit; fi
 if [[ -z $year ]] && [[ $workflow != "HELP" ]]; then echo "You must provide a year!"; exit; fi
 if [[ -z $run ]] && [[ $workflow != "HELP" ]]; then run="OFF"; fi
 
@@ -116,6 +116,22 @@ elif [[ $workflow == "EDIT" ]]; then
             fi
         done
     done < conversion_table.txt
+####################################################
+# Delete Issues
+####################################################
+elif [[ $workflow == "DELETE" ]]; then
+    while read msn oms nms; do 
+            ### RUN
+            if [[ $run == "RUN" ]]; then
+                echo "------- RUNNING -------"
+                gh milestone delete $msn --confirm 
+            else
+                echo "------- COMMANDS TO RUN-------"
+                echo "gh milestone delete $msn --confirm"
+            fi
+    done < conversion_table.txt
+####################################################
+# Error check
 ####################################################
 # Error check
 ####################################################
